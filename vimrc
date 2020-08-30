@@ -147,7 +147,7 @@ map <right> :vertical resize+5<CR>
 
 " 切换水平和竖直分屏
 map sv <C-w>t<C-w>H
-map sh <C-w>t<C-w>K
+map s- <C-w>t<C-w>K
 
 " 打开新标签
 map tn :tabe<CR>
@@ -169,6 +169,9 @@ noremap L 7l
 
 " vim 插件
 call plug#begin('~/.vim/plugged')
+" atom one 主题
+Plug 'rakr/vim-one'
+Plug 'connorholyday/vim-snazzy'
 " 美化 vim 状态栏
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -195,3 +198,6 @@ map <leader>t :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
+" 选用主题
+" colorscheme snazzy
+" let g:SnazzyTransparent = 1
