@@ -34,10 +34,15 @@ set showmatch
 " 设置缩进
 " 设置Tab长度为4空格
 set tabstop=4
+set softtabstop=4
 " 设置自动缩进长度为4空格
 set shiftwidth=4
 " 继承前一行的缩进方式
 set autoindent
+
+" 设置tab和空格标记
+set list
+set listchars=tab:▸\ ,trail:▫
 
 " 设置粘贴模式
 " set paste
@@ -58,6 +63,8 @@ syntax enable
 " 使用tab键补全时，在状态栏显示匹配的列表
 set wildmenu
 
+" 打开文件取消上次高亮
+exec "nohlsearch"
 " 高亮显示所有搜索到的内容
 set hlsearch
 " 光标立刻跳转到搜索到的内容
@@ -155,7 +162,6 @@ map tn :tabe<CR>
 map tj :-tabnext<CR>
 map tk :+tabnext<CR>
 " ------
-
 " 保存退出的按键映射
 map S :w<CR>
 map Q :q<CR>
@@ -164,8 +170,13 @@ map R :source $MYVIMRC<CR>
 " 快速翻页的按键映射
 noremap J 9j
 noremap K 9k
-noremap H 7h
-noremap L 7l
+
+" 映射行首行尾按键
+noremap L $
+noremap H 0
+
+" 使光标距离窗口边缘5行
+set scrolloff=5
 
 " vim 插件
 call plug#begin('~/.vim/plugged')
@@ -177,6 +188,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Nerdtree 文件浏览器
 Plug 'preservim/nerdtree'
+" coc 自动补全插件
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
