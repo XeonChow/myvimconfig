@@ -64,7 +64,7 @@ syntax enable
 set wildmenu
 
 " 打开文件取消上次高亮
-exec "nohlsearch"
+" exec "nohlsearch"
 " 高亮显示所有搜索到的内容
 set hlsearch
 " 光标立刻跳转到搜索到的内容
@@ -198,8 +198,8 @@ call plug#end()
 " enable smarter tab line
 let g:airline#extension#tabline#enabled = 1
 " set separater
-" let g:airline_left_sep='>'
-" let g:airline_right_sep='<'
+" let g:airline_left_sep=' '
+" let g:airline_right_sep=' '
 " let g:airline_powerline_fonts = 1
 " let g:airline#extensions#tabline#left_sep = ' '
 " let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -214,3 +214,7 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 " 选用主题
 " colorscheme snazzy
 " let g:SnazzyTransparent = 1
+
+" coc 设置
+" 不显示coc错误提示
+let g:coc_disable_startup_warning = 1
