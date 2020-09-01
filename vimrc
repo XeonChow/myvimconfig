@@ -207,9 +207,9 @@ call plug#end()
 " vim-airline 设置
 " enable smarter tab line
 let g:airline#extension#tabline#enabled = 1
-" set separater
-" let g:airline_left_sep=' '
-" let g:airline_right_sep=' '
+" set separaters
+" let g:airline_left_sep='>'
+" let g:airline_right_sep='<'
 " let g:airline_powerline_fonts = 1
 " let g:airline#extensions#tabline#left_sep = ' '
 " let g:airline#extensions#tabline#left_alt_sep = '|'
