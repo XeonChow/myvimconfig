@@ -189,6 +189,7 @@ call plug#end()
 " vim-airline 设置
 " enable smarter tab line
 let g:airline#extension#tabline#enabled = 1
+let g:airline_theme = 'bubblegum'
 " set separaters
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
@@ -204,8 +205,8 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.dirty='⚡'
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " nerdtree 设置
 " nerdtree 快捷键
