@@ -115,14 +115,6 @@ let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
 "let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " ---------------------------------------------
 
-" 括号自动补全
-
-inoremap ( ()<ESC>i
-inoremap [ []<ESC>i
-inoremap { {}<ESC>i
-
-" ------
-" 分屏设置
 " 映射 s 键无操作
 map s <nop>
 
@@ -178,16 +170,6 @@ noremap H 0
 " 使光标距离窗口边缘5行
 set scrolloff=5
 
-" Compile function
-noremap <leader>c :call CompileRunGcc()<CR>
-func! CompileRunGcc()
-	exec "w"
-	if &filetype == 'c'
-		exec "!gcc % -o %<"
-		exec "!time ./%<"
-	endif
-endfunc
-
 " vim 插件
 call plug#begin('~/.vim/plugged')
 " atom one 主题
@@ -240,7 +222,7 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 " 不显示coc错误提示
 let g:coc_disable_startup_warning = 1
 " 自动安装coc插件
-let g:coc_global_extensions = ['coc-clangd', 'coc-marketplace','coc-json', 'coc-vimlsp']
+let g:coc_global_extensions = ['coc-clangd', 'coc-marketplace','coc-json', 'coc-vimlsp', 'coc-pairs']
 " some vim config to make coc work better
 set hidden " enable jump to another file without saving the current buffer
 set updatetime=100 " make vim respond faster
@@ -259,5 +241,4 @@ function! s:check_back_space() abort
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Use <c-o> to trigger completion.
 inoremap <silent><expr> <c-o> coc#refresh()
-
 
