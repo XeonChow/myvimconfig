@@ -1,4 +1,4 @@
-" 设置<leader>键
+" map <leader> key
 let mapleader=";"
 
 " 去掉有关vi一致性模式,避免操作习惯上的局限
@@ -64,7 +64,7 @@ syntax enable
 set wildmenu
 
 " 打开文件取消上次高亮
-" exec "nohlsearch"
+exec "nohlsearch"
 " 高亮显示所有搜索到的内容
 set hlsearch
 " 光标立刻跳转到搜索到的内容
@@ -182,6 +182,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
 " coc 自动补全插件
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" vim peekaboo 剪贴板辅助
+Plug 'junegunn/vim-peekaboo'
 
 call plug#end()
 
@@ -224,7 +226,7 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 " 不显示coc错误提示
 let g:coc_disable_startup_warning = 1
 " 自动安装coc插件
-let g:coc_global_extensions = ['coc-clangd', 'coc-marketplace','coc-json', 'coc-vimlsp', 'coc-pairs']
+let g:coc_global_extensions = ['coc-clangd', 'coc-marketplace', 'coc-json', 'coc-vimlsp', 'coc-pairs', 'coc-yank']
 " some vim config to make coc work better
 set hidden " enable jump to another file without saving the current buffer
 set updatetime=100 " make vim respond faster
@@ -244,3 +246,5 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Use <c-o> to trigger completion.
 inoremap <silent><expr> <c-o> coc#refresh()
 
+" coc-yank 设置
+nnoremap <leader>p :<C-u>CocList -A --normal yank<cr>
