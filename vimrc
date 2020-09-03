@@ -51,9 +51,6 @@ set listchars=tab:▸\ ,trail:▫
 set laststatus=2
 set ruler
 
-" 打开文件类型检测
-filetype plugin indent on
-
 " vim配置变更立即生效
 " autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
@@ -184,7 +181,8 @@ Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " vim peekaboo 剪贴板辅助
 Plug 'junegunn/vim-peekaboo'
-
+" vim markdown preview
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 call plug#end()
 
 " vim 插件设置
@@ -248,3 +246,15 @@ inoremap <silent><expr> <c-o> coc#refresh()
 
 " coc-yank 设置
 nnoremap <leader>p :<C-u>CocList -A --normal yank<cr>
+
+" intant markdown 设置
+let g:instant_markdown_slow = 1
+let g:instant_markdown_autostart = 0
+let g:instant_markdown_open_to_the_world = 1
+let g:instant_markdown_allow_unsafe_content = 1
+let g:instant_markdown_allow_external_content = 0
+let g:instant_markdown_mathjax = 1
+let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
+let g:instant_markdown_autoscroll = 0
+let g:instant_markdown_port = 8888
+let g:instant_markdown_python = 1
