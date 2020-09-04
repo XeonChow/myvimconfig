@@ -146,10 +146,10 @@ map sv <C-w>t<C-w>H
 map s- <C-w>t<C-w>K
 
 " 打开新标签
-map tn :tabe<CR>
+noremap tn :tabe<CR>
 " 切换标签
-map tj :-tabnext<CR>
-map tk :+tabnext<CR>
+noremap tj :-tabnext<CR>
+noremap tk :+tabnext<CR>
 " ------
 " 保存退出的按键映射
 map S :w<CR>
@@ -164,8 +164,15 @@ noremap K 9k
 noremap L $
 noremap H 0
 
+" double click <leader> key to find the next place
+" holder and edit it.
+noremap <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4l
+
 " 使光标距离窗口边缘5行
 set scrolloff=5
+
+" Opening a terminal window
+noremap <LEADER>/ :set splitbelow<CR><:split<CR>:res +10<CR>:term<CR>
 
 " vim 插件
 call plug#begin('~/.vim/plugged')
@@ -255,4 +262,5 @@ source $HOME/.vim/md-snippets.vim
 
 " vim table mode 设置
 noremap <leader>tm :TableModeToggle<CR>
-
+" for markdown compatible corner
+let g:table_mode_corner = '|'
