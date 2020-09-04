@@ -182,7 +182,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " vim peekaboo 剪贴板辅助
 Plug 'junegunn/vim-peekaboo'
 " vim markdown preview
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+Plug 'iamcco/markdown-preview.nvim', {'do': {-> mkdp#util#install()}, 'for':['markdown', 'vim-plug']}
+" vim table mode
+Plug 'dhruvasagar/vim-table-mode',  {'on': 'TableModeToggle', 'for': ['text', 'markdown', 'vim-plug'] }
 call plug#end()
 
 " vim 插件设置
@@ -211,7 +213,7 @@ let g:airline#extensions#tabline#show_close_button = 0
 
 " nerdtree 设置
 " nerdtree 快捷键
-map <leader>t :NERDTreeToggle<CR>
+map <leader>nt :NERDTreeToggle<CR>
 " 设置 nerdtree 的箭头
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
@@ -247,14 +249,10 @@ inoremap <silent><expr> <c-o> coc#refresh()
 " coc-yank 设置
 nnoremap <leader>p :<C-u>CocList -A --normal yank<cr>
 
-" intant markdown 设置
-let g:instant_markdown_slow = 1
-let g:instant_markdown_autostart = 0
-let g:instant_markdown_open_to_the_world = 1
-let g:instant_markdown_allow_unsafe_content = 1
-let g:instant_markdown_allow_external_content = 0
-let g:instant_markdown_mathjax = 1
-let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
-let g:instant_markdown_autoscroll = 0
-let g:instant_markdown_port = 8888
-let g:instant_markdown_python = 1
+" markdown preview 设置
+" snippets
+source $HOME/.vim/md-snippets.vim
+
+" vim table mode 设置
+noremap <leader>tm :TableModeToggle<CR>
+
