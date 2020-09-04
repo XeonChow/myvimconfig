@@ -39,6 +39,12 @@ set softtabstop=4
 set shiftwidth=4
 " 继承前一行的缩进方式
 set autoindent
+set expandtab
+" 光标在行首时按退格键能退回上一行尾
+set backspace=indent,eol,start
+
+" vim 在当前目录下执行命令
+set autochdir
 
 " 设置tab和空格标记
 set list
@@ -85,10 +91,13 @@ set ttimeoutlen=100
 set showcmd
 
 " 设置自动补全的选项
-set completeopt=longest,menu
+set completeopt=longest,noinsert,menuone,noselect,preview
 
 " 取消鼠标支持
 set mouse=a
+
+" 退出 vim 再次打开文件后光标回到上次编辑处
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal!g'\"" | endif
 
 " ----------------------------------------------
 " 光标样式修改
@@ -114,47 +123,49 @@ let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
 
 " 映射 s 键无操作
 map s <nop>
+map n <nop>
 
 " s for split
 " 垂直分屏光标在右窗口
-map sl :set splitright<CR>:vsplit<CR>
+nnoremap sl :set splitright<CR>:vsplit<CR>
 " 垂直分屏光标在左窗口
-map sh :set nosplitright<CR>:vsplit<CR>
+nnoremap sh :set nosplitright<CR>:vsplit<CR>
 " 水平分屏光标在下窗口
-map sj :set splitbelow<CR>:split<CR>
+nnoremap sj :set splitbelow<CR>:split<CR>
 " 水平分屏光标在上窗口
-map sk :set nosplitbelow<CR>:split<CR>
+nnoremap sk :set nosplitbelow<CR>:split<CR>
 
 " 窗口切换
 " 切换到右窗口
-map <leader>l <C-w>l
+nnoremap <leader>l <C-w>l
 " 切换到左窗口
-map <leader>h <C-w>h
+nnoremap <leader>h <C-w>h
 " 切换到下窗口
-map <leader>j <C-w>j
+nnoremap <leader>j <C-w>j
 " 切换到上窗口
-map <leader>k <C-w>k
+nnoremap <leader>k <C-w>k
 
 " 方向键调整窗口大小
-map <up> :res +5<CR>
-map <down> :res -5<CR>
-map <left> :vertical resize-5<CR>
-map <right> :vertical resize+5<CR>
+nnoremap <up> :res +5<CR>
+nnoremap <down> :res -5<CR>
+nnoremap <left> :vertical resize-5<CR>
+nnoremap <right> :vertical resize+5<CR>
 
 " 切换水平和竖直分屏
-map sv <C-w>t<C-w>H
-map s- <C-w>t<C-w>K
+nnoremap sv <C-w>t<C-w>H
+nnoremap s- <C-w>t<C-w>K
 
 " 打开新标签
 noremap tn :tabe<CR>
 " 切换标签
 noremap tj :-tabnext<CR>
 noremap tk :+tabnext<CR>
+
 " ------
 " 保存退出的按键映射
-map S :w<CR>
-map Q :q<CR>
-map R :source $MYVIMRC<CR>
+nnoremap S :w<CR>
+nnoremap Q :q<CR>
+nnoremap R :source $MYVIMRC<CR>
 
 " 快速翻页的按键映射
 noremap J 9j
@@ -166,13 +177,13 @@ noremap H 0
 
 " double click <leader> key to find the next place
 " holder and edit it.
-noremap <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4l
+nnoremap <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4l
 
 " 使光标距离窗口边缘5行
 set scrolloff=5
 
 " Opening a terminal window
-noremap <LEADER>/ :set splitbelow<CR><:split<CR>:res +10<CR>:term<CR>
+nnoremap <LEADER>/ :set splitbelow<CR><:split<CR>:res +10<CR>:term<CR>
 
 " vim 插件
 call plug#begin('~/.vim/plugged')
@@ -260,7 +271,5 @@ nnoremap <leader>p :<C-u>CocList -A --normal yank<cr>
 " snippets
 source $HOME/.vim/md-snippets.vim
 
-" vim table mode 设置
-noremap <leader>tm :TableModeToggle<CR>
 " for markdown compatible corner
 let g:table_mode_corner = '|'

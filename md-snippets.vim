@@ -1,4 +1,5 @@
 autocmd FileType markdown nnoremap <buffer> <leader>v <Esc>:MarkdownPreview<CR>
+autocmd FileType markdown nnoremap <buffer> <leader>tm :TableModeToggle<CR>
 autocmd FileType markdown nnoremap <buffer> <leader>s <Esc>:MarkdownPreviewStop<CR>
 autocmd FileType markdown nnoremap <buffer> <leader>t <Esc>:MarkdownPreviewToggle<CR>
 autocmd FileType markdown inoremap <buffer> ,f <Esc>/<++><CR>:nohlsearch<CR>"_c4l
