@@ -183,7 +183,7 @@ nnoremap <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4l
 set scrolloff=5
 
 " Opening a terminal window
-nnoremap <LEADER>/ :set splitbelow<CR><:split<CR>:res +10<CR>:term<CR>
+nnoremap <LEADER>/ :set splitbelow<CR>:term<CR><C-w>:res 10<CR>
 
 " vim 插件
 call plug#begin('~/.vim/plugged')
