@@ -203,6 +203,8 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'iamcco/markdown-preview.nvim', {'do': {-> mkdp#util#install()}, 'for':['markdown', 'vim-plug']}
 " vim table mode
 Plug 'dhruvasagar/vim-table-mode',  {'on': 'TableModeToggle', 'for': ['text', 'markdown', 'vim-plug'] }
+" vim devicons
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " vim 插件设置
