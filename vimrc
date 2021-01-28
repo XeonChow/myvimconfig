@@ -246,7 +246,7 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 " 不显示coc错误提示
 let g:coc_disable_startup_warning = 1
 " 自动安装coc插件
-let g:coc_global_extensions = ['coc-clangd', 'coc-marketplace', 'coc-json', 'coc-vimlsp', 'coc-pairs', 'coc-yank']
+let g:coc_global_extensions = ['coc-clangd', 'coc-marketplace', 'coc-json', 'coc-vimlsp', 'coc-pairs', 'coc-yank', 'coc-ci']
 " some vim config to make coc work better
 set hidden " enable jump to another file without saving the current buffer
 set updatetime=100 " make vim respond faster
@@ -275,3 +275,7 @@ source $HOME/.vim/md-snippets.vim
 
 " for markdown compatible corner
 let g:table_mode_corner = '|'
+
+" coc-ci 设置，中文分词跳转
+nmap <silent> w <Plug>(coc-ci-w)
+nmap <silent> b <Plug>(coc-ci-b)
